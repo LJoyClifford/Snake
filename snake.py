@@ -1,4 +1,5 @@
 import pygame
+import random
 
 pygame.init()
 
@@ -8,7 +9,7 @@ WINDOW_HEIGHT = 600
 display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption("~Snake~")
 
-FPS = 20
+FPS = 10
 clock = pygame.time.Clock()
 
 SNAKE_SIZE = 20
@@ -88,6 +89,9 @@ while running:
         score += 1
         #pick_up_sound.play()
 
+        apple_x = random.randint(0, WINDOW_WIDTH - SNAKE_SIZE)
+        apple_y = random.randint(0, WINDOW_HEIGHT - SNAKE_SIZE)
+        apple_coord = (apple_x, apple_y, SNAKE_SIZE, SNAKE_SIZE)
 
 
 
