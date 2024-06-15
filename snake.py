@@ -49,8 +49,10 @@ pick_up_sound = pygame.mixer.Sound("pick_up_sound.wav")
 #set image rectangles
 apple_coord = (500, 500, SNAKE_SIZE, SNAKE_SIZE)
 apple_rect = pygame.draw.rect(display_surface, RED, apple_coord)
+
 head_coord = (head_x, head_y, SNAKE_SIZE, SNAKE_SIZE)
-head_rect = pygame.draw.rect(display_surface, RED, head_coord)
+head_rect = pygame.draw.rect(display_surface, GREEN, head_coord)
+
 body_coords = []
 
 #main loop
@@ -59,6 +61,19 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    display_surface.fill(WHITE)
+
+    display_surface.blit(title_text, title_rect)
+    display_surface.blit(score_text, score_rect)
+
+    pygame.draw.rect(display_surface, GREEN, head_coord)
+    pygame.draw.rect(display_surface, RED, apple_coord)
+
+#update display clock
+    pygame.display.update()
+    clock.tick(FPS)
+
 
 #end
 pygame.quit()
