@@ -93,7 +93,8 @@ while running:
         apple_y = random.randint(0, WINDOW_HEIGHT - SNAKE_SIZE)
         apple_coord = (apple_x, apple_y, SNAKE_SIZE, SNAKE_SIZE)
 
-
+    #update score
+    score_text = font.render("Score: " + str(score), True, GREEN, RED)
 
 
     display_surface.fill(WHITE)
