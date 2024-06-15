@@ -28,20 +28,20 @@ WHITE = (255, 255, 255)
 
 font = pygame.font.SysFont('gabriola', 48)
 
-title_text = font.render("~Snake~", True, GREEN, DARKRED)
-title_react = title_text.get_rect()
-title_react.center = d(WINDOW//2, WINDOW_HEIGHT//2)
+title_text = font.render("~Snake~", True, GREEN, RED)
+title_rect = title_text.get_rect()
+title_react.center = (WINDOW_WIDTH//2, WINDOW_HEIGHT//2) # type: ignore
 
-score_text = font.render("Score: " + str(score), True, GREEN, DARKRED)
+score_text = font.render("Score: " + str(score), True, GREEN, RED)
 score_rect = score_text.get_rect()
 score_rect.topleft = (10, 10)
 
-game_over_text = font.render("GAMEOVER", True, GREEN, DARKRED)
+game_over_text = font.render("GAMEOVER", True, GREEN, RED)
 game_over_rect = game_over_text.get_react()
-game_over_react.center = (WINDOW_WIDHT//2, WINDOW_HIGHT//2)
+game_over_rect.center = (WINDOW_WIDTH/2, WINDOW_HEIGHT//2)
 
 continue_text = font.render("Press any key to play again", True, RED, DARKGREEN)
-continue.rect = continue_text.get_rect()
+continue_rect = continue_text.get_rect()
 continue_rect.center = (WINDOW_WIDTH//2, WINDOW_HEIGHT//2 + 64)
 
 pick_up_sound = pygame.mixer.Sound("pick_up_sound.wav")
