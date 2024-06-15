@@ -44,9 +44,14 @@ continue_text = font.render("Press any key to play again", True, RED, DARKGREEN)
 continue.rect = continue_text.get_rect()
 continue_rect.center = (WINDOW_WIDTH//2, WINDOW_HEIGHT//2 + 64)
 
+pick_up_sound = pygame.mixer.Sound("pick_up_sound.wav")
 
-
-
+#set image rectangles
+apple_coord = (500, 500, SNAKE_SIZE, SNAKE_SIZE)
+apple_rect = pygame.draw.rect(display_surface, RED, apple_coord)
+head_coord = (head_x, head_y, SNAKE_SIZE, SNAKE_SIZE)
+head_rect = pygame.draw.rect(display_surface, RED, head_coord)
+body_coords = []
 
 #main loop
 running = True
