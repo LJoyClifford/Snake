@@ -84,18 +84,21 @@ while running:
     head_coord = (head_x, head_y, SNAKE_SIZE, SNAKE_SIZE)
 
     #check for collisions
+    if head_rect.colliderect(apple_rect):
+        score += 1
+        #pick_up_sound.play()
 
 
 
 
-    
+
     display_surface.fill(WHITE)
 
     display_surface.blit(title_text, title_rect)
     display_surface.blit(score_text, score_rect)
 
-    pygame.draw.rect(display_surface, GREEN, head_coord)
-    pygame.draw.rect(display_surface, RED, apple_coord)
+    head_rect = pygame.draw.rect(display_surface, GREEN, head_coord)
+    apple_rect = pygame.draw.rect(display_surface, RED, apple_coord)
 
 #update display clock
     pygame.display.update()
