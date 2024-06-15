@@ -1,14 +1,19 @@
-import pygame as pg
-from random import randrange
+import pygame
 
-WINDOW = 1000
-screen = pg.display.set.mode([WINDOW] * 2)
-clock = pg.time.Clock()
+pygame.init()
 
-while True:
-    for event in pg.event.get():
-        if event.type == pg.Quit:
-            exit()
-    screen.fill('black')
-    pg.display.flip()
-    clock.tick(60)
+#window
+WINDOW_WIDTH = 600
+WINDOW_HEIGHT = 600
+display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+pygame.display.set_caption("~Snake~")
+
+#main loop
+running = True
+while running: 
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+#end
+pygame.quit()
