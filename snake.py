@@ -79,6 +79,10 @@ while running:
                 snake_dx = 0
                 snake_dy = SNAKE_SIZE
 
+#grow snake
+    body_coords.insert(0, head_coord)
+    body_coords.pop()
+
 #update position of snakes head
     head_x += snake_dx
     head_y += snake_dy
@@ -93,6 +97,8 @@ while running:
         apple_y = random.randint(0, WINDOW_HEIGHT - SNAKE_SIZE)
         apple_coord = (apple_x, apple_y, SNAKE_SIZE, SNAKE_SIZE)
 
+        body_coords.append(head_coord)
+
     #update score
     score_text = font.render("Score: " + str(score), True, GREEN, RED)
 
@@ -102,6 +108,8 @@ while running:
     display_surface.blit(title_text, title_rect)
     display_surface.blit(score_text, score_rect)
 
+    for body in body_coords:
+        pygame.draw.rect(display_surface, DARKGREEN, body)
     head_rect = pygame.draw.rect(display_surface, GREEN, head_coord)
     apple_rect = pygame.draw.rect(display_surface, RED, apple_coord)
 
