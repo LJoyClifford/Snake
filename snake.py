@@ -45,8 +45,6 @@ continue_text = font.render("Press any key to play again", True, RED, DARKGREEN)
 continue_rect = continue_text.get_rect()
 continue_rect.center = (WINDOW_WIDTH//2, WINDOW_HEIGHT//2 + 64)
 
-pick_up_sound = pygame.mixer.Sound("pick_up_sound.wav")
-
 #set image rectangles
 apple_coord = (500, 500, SNAKE_SIZE, SNAKE_SIZE)
 apple_rect = pygame.draw.rect(display_surface, RED, apple_coord)
@@ -117,7 +115,6 @@ while running:
     #check for collisions
     if head_rect.colliderect(apple_rect):
         score += 1
-        pick_up_sound.play()
 
         apple_x = random.randint(0, WINDOW_WIDTH - SNAKE_SIZE)
         apple_y = random.randint(0, WINDOW_HEIGHT - SNAKE_SIZE)
